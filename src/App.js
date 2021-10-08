@@ -7,12 +7,13 @@ import Particles from "react-particles-js";
 import "./App.css";
 const particlesOptions = {
   particles: {
-        line_linked: {
-        shadow: {
+        number: {
+        value:30,
+        density: {
           	enable: true,
-            color: "#3CA9D1",
-            blur: 5
-        	}
+            value_area: 800,
+            
+          }
       	}
     	}
     }
@@ -21,7 +22,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <Particles 
+      <Particles className="particles" 
          params={particlesOptions}
         />
         <Navigation />
