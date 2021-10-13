@@ -10,16 +10,16 @@ class  Register extends React.Component {
     }
   }
   onNameChange = (event) =>{
-    this.setState =({name:event.targer.value})
+    this.setState =({name:event.target.value})
   }
   onEmailChange = (event) =>{
-    this.setState =({email:event.targer.value})
+    this.setState =({email:event.target.value})
   }
   onPasswordChange = (event) =>{
-    this.setState =({password:event.targer.value})
+    this.setState =({password:event.target.value})
   }
   onSubmitSignIn =() =>{
-    fetch('http://localhost:3000/register',{
+    fetch('http://localhost:3001/register',{
       method:'post',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({
@@ -37,7 +37,7 @@ class  Register extends React.Component {
       })
   }
   render(){
-    const {onRouteChange} = this.props;
+    //const {onRouteChange} = this.props;
     return (
       <div>
         <article className="br3 ba  b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
