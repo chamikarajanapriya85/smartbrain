@@ -19,11 +19,11 @@ class  Register extends React.Component {
     this.setState =({password:event.target.value})
   }
   onSubmitSignIn =() =>{
-    fetch('http://localhost:3001/register',{
+    fetch('http://localhost:3000/register',{
       method:'post',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({
-        email:this.state.emailmail,
+        email:this.state.email,
         password:this.state.password,
         name:this.state.name
       })
