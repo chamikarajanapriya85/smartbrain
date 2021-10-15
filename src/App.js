@@ -13,7 +13,20 @@ import "./App.css";
 const app = new Clarifai.App({
   apiKey:"74b3307a099f4abfbc828bab31066e24",
 });
-
+const initialState = {
+        input:'',
+        imageUrl:'',
+        box:{},
+        route:'signin',
+        isSignedIn:false,
+        user:{
+          id: "",
+          name: "",
+          email: "",
+          entries: 0,
+          joined: '',
+        }
+}
 
 const particlesOptions = {
   particles: {
@@ -31,20 +44,8 @@ const particlesOptions = {
 class App extends Component {
   constructor() {
      super();
-     this.state={
-        input:'',
-        imageUrl:'',
-        box:{},
-        route:'signin',
-        isSignedIn:false,
-        user:{
-          id: "",
-          name: "",
-          email: "",
-          entries: 0,
-          joined: '',
-        }
-      }
+     this.state=initalState
+         
     }
 
 
@@ -102,6 +103,7 @@ class App extends Component {
             .then(count => {
               this.setState(Object.assign(this.state.user,{entries:count}))
             })
+            .catch(console.log)
         }
         this.displayFaceBox(this.calculateFaceLocation(response))
       })
@@ -113,7 +115,7 @@ class App extends Component {
     if(route==="signout"){
       this.setState({isSignedIn:false})
     } else if(route==="home") {
-      this.setState({isSignedIn:true})
+      this.setState(initalState)
     }
       this.setState( {route:route});
   }
